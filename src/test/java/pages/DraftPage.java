@@ -2,7 +2,8 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by Katsiaryna_Skarzhyns on 12/18/2017.
@@ -29,11 +30,10 @@ public class DraftPage extends BaseMailPage {
 		}
 	}
 
-	public boolean sendDraft (int draftOrder) throws InterruptedException {
+	public boolean sendDraft (int draftOrder) {
 		driver.findElements(By.xpath(draftsXpath)).get(0).click();
 		BaseMailPage baseMailPage = new BaseMailPage();
 		baseMailPage.send();
-		Thread.sleep(3000);
-		return driver.findElement(By.xpath(successMsgXpath)).isDisplayed();
+		return new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(successMsgXpath))).isDisplayed();
 	}
 }
