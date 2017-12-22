@@ -23,8 +23,8 @@ public class SendMailTest extends BaseTestPage {
 		BaseMailPage baseMailPage = loginPage.login();
 		baseMailPage.createMail(ADDRESS, SUBJECT, BODY);
 		DraftPage draftPage = baseMailPage.openDrafts();
-		Assert.assertTrue(draftPage.sendDraft(0), "The mail disappeared from drafts");
+		Assert.assertTrue(draftPage.sendDraft(0), "The mail doesn't disappear from drafts");
 		SentPage sentPage = draftPage.openSentMails();
-		Assert.assertTrue(sentPage.isExpectedMailPresent(BODY, SUBJECT, ADDRESS));
+		Assert.assertTrue(sentPage.isExpectedMailPresent(BODY, SUBJECT, ADDRESS), "Expected mail doesn't present in the folder");
 	}
 }

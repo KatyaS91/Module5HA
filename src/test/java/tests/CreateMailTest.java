@@ -21,7 +21,7 @@ public class CreateMailTest extends BaseTestPage {
 		BaseMailPage baseMailPage = loginPage.login();
 		baseMailPage.createMail(ADDRESS, SUBJECT, BODY);
 		DraftPage draftPage = baseMailPage.openDrafts();
-		Assert.assertTrue(draftPage.isExpectedDraftSubjectPresent(SUBJECT), "The draft with subject is displayed");
-		Assert.assertTrue(draftPage.isExpectedDraftBodyDisplayed(BODY), "The draft with body is displayed");
+		Assert.assertTrue(draftPage.isExpectedDraftSubjectPresent(SUBJECT), "The draft with subject isn't displayed");
+		Assert.assertTrue(draftPage.isExpectedDraftBodyDisplayed(BODY), "The draft with body isn't displayed");
 	}
 }

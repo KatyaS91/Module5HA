@@ -15,6 +15,6 @@ public class LoginTest extends BaseTestPage {
 	public void login_test() throws InterruptedException {
 		LoginPage login = new LoginPage();
 		BaseMailPage baseMailPage = login.login();
-		Assert.assertTrue(baseMailPage.isPageOpened(), "Account page was opened");
+		Assert.assertTrue(baseMailPage.isPageOpened(), "Account page wasn't opened");
 	}
 }
